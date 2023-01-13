@@ -34,7 +34,7 @@ const UserForm = () => {
   const emailHandler = (e) =>{
     setEmail(e.target.value);
   if (e.target.value.length < 5){
-    setEmailErrors("Last name muse be at least 5 characters.");
+    setEmailErrors("Last name must be at least 5 characters.");
   } else{
     setEmailErrors(null);
   }
@@ -43,7 +43,7 @@ const UserForm = () => {
   const passHandler = (e) =>{
     setPass(e.target.value);
   if (e.target.value.length < 8){
-    setPassErrors("Last name muse be at least 8 characters.");
+    setPassErrors("Password must be at least 8 characters.");
   } else{
     setPassErrors(null);
   }
@@ -51,11 +51,15 @@ const UserForm = () => {
 
   const cpassHandler = (e) =>{
     setCpass(e.target.value);
-  if (e.target.value.length < 8){
-    setCpassErrors("Last name muse be at least 8 characters.");
+  if (e.target.value.length < 8 && pass !== cpass ){
+    setCpassErrors("Password must be at least 8 characters and match.");
   } else if (pass !== cpass){
     setCpassErrors("Passwords must match");
-  } else{
+  } 
+    else if (e.target.value.length < 8){
+    setCpassErrors("Passwords must match");
+  } 
+  else{
     setCpassErrors(null);
   }
   }
